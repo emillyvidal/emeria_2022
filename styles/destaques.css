@@ -1,0 +1,35 @@
+html {
+  width: 664px;
+  height: 554px;
+  margin: none;
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  height: 200px;
+  max-width: 615px;
+}
+.carousel.inner {
+  height: 400px !important;
+}
+.carousel-item {
+  width: 50%;
+  height: 50%;
+}
+
+.carouselFade {
+  border: 1px solid black;
+  width: 20%;
+  height: 20%;
+}
+
+.carousel-item .carouselFade {
+  background: no-repeat center;
+  background-size: cover;
+}
+
+img {
+  width: 615px;
+  height: 400px !important;
+  object-fit: fill;
+}

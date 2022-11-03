@@ -1,0 +1,12 @@
+<?php 
+            foreach($_SESSION['venda'] as $prod => $quantidade){
+                $sqlCarrinho = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $prod");
+                $resAssoc = mysqli_fetch_assoc($sqlCarrinho);
+                ?>
+            <div class="produtocarrinho">
+                <h3><?php echo $dados2['nome'] ?></h3>
+                <p><?php echo 'R$' . $dados2['preco'] ?></p>
+                <p> <?php echo $quantidade ?> </p>
+                <a href="produtoCardapio.php?del=<?php echo $resAssoc['idProduto'] ?>">X</a>
+            </div>
+    <?php } ?> 

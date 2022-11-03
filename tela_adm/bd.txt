@@ -1,0 +1,13 @@
+create database emeria;
+use emeria;
+create table produto (
+	nome varchar(50),
+    descricao varchar(50),
+    preco int,
+    categoria varchar(30) 
+    );
+    
+    select * from categoria;
+    
+    create table categoria (
+	nomeCategoria varchar(25));
