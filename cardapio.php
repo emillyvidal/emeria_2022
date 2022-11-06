@@ -73,8 +73,8 @@ include_once('conexao.php');
     header {
       width: 100%;
       font-family: "Lato", sans-serif;
+      border-bottom: solid 3px white;
     }
-
     .menuu {
       background-color: rgb(79, 6, 94);
       color: white;
@@ -93,6 +93,7 @@ include_once('conexao.php');
       font-size: 1.8rem;
       flex-direction: row-reverse;
       justify-content: flex-end;
+      border-bottom: solid 3px white;
     }
 
 
@@ -112,7 +113,7 @@ include_once('conexao.php');
       margin-top: 0;
       height: 538px !important;
       width: 100%;
-      background-color: #d9d9d9;
+      background-color: #212529;
     }
 
     .menu_esquerda {
@@ -129,9 +130,10 @@ include_once('conexao.php');
       justify-content: space-evenly;
       align-items: center;
       margin-top: 0;
+      border-right: solid 1px white;
     }
 
-    .produtos {
+    .produto {
       width: 65%;
       margin-left: 0;
     }
@@ -146,8 +148,8 @@ include_once('conexao.php');
 
 <body styles='background-color:red;text-transform: uppercase;''>
 
-  <header style="height: 62px; width: 100%">
-    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
+  <header style="height: 62px; width: 100%;">
+    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
         <div class="menu-content" style="height: 62px; width: 100%">
           <div class="logo">
             <h1 class="logo" style="color: white; margin:10px;">EMÉRIA</h1>
@@ -160,7 +162,7 @@ include_once('conexao.php');
   </div>
 
   <div class="offcanvas menu offcanvas-start  text-white bg-dark " tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
-    <div class="offcanvas-header">
+    <div class="offcanvas-header" style="background-color: #500b70">
       <h3 class="offcanvas-title" id="offcanvasExampleLabel">Configuração</h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -195,43 +197,41 @@ include_once('conexao.php');
       <?php } ?>
     </div>
 
-    <div class="produtos">
-      <div class="produto">
+    <div class="produto">
 
-
-      </div>
-
-      <div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 12%; right: 8%">
-        <a style=' font-size:100px; margin: 20px; color: white; text-decoration:none' class='fas fa-arrow-circle-left' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
-      </div>
-
-      <div class="abaPedido">
-        <div class="offcanvas menu offcanvas-end  text-white bg-dark " tabindex="-1" id="navbarpedido" aria-labelledby="navbarpedido">
-          <div class="offcanvas-header" style="background-color: #500b70; border-bottom: 2px solid #d9d9d9;">
-            <h3 class="offcanvas-title" id="offcanvasExampleLabel">Pedido</h3>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <h5 class="itemPedido text-white">Itens Pedidos</a></h5>
-
-            <?php
-            foreach ($_SESSION['venda'] as $prod => $quantidade) {
-              $sqlCarrinho = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $prod");
-              $resAssoc = mysqli_fetch_assoc($sqlCarrinho);
-            ?>
-              <div class="produtocarrinho">
-                <h3><?php echo $dados2['nome'] ?></h3>
-                <p><?php echo 'R$' . $dados2['preco'] ?></p>
-                <p> <?php echo $quantidade ?> </p>
-                <a href="produtoCardapio.php?del=<?php echo $resAssoc['idProduto'] ?>">X</a>
-              </div>
-            <?php } ?>
-
-          </div>
-        </div>
-      </div>
 
     </div>
+
+    <div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 12%; right: 8%">
+      <a style=' font-size:100px; margin: 20px; color: white; text-decoration:none' class='fas fa-arrow-circle-left' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
+    </div>
+
+    <div class="abaPedido">
+      <div class="offcanvas menu offcanvas-end  text-white bg-dark " tabindex="-1" id="navbarpedido" aria-labelledby="navbarpedido">
+        <div class="offcanvas-header" style="background-color: #500b70; border-bottom: 2px solid #d9d9d9;">
+          <h3 class="offcanvas-title" id="offcanvasExampleLabel">Pedido</h3>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <h5 class="itemPedido text-white">Itens Pedidos</a></h5>
+
+          <?php
+          foreach ($_SESSION['venda'] as $prod => $quantidade) {
+            $sqlCarrinho = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $prod");
+            $resAssoc = mysqli_fetch_assoc($sqlCarrinho);
+          ?>
+            <div class="produtocarrinho">
+              <h3><?php echo $dados2['nome'] ?></h3>
+              <p><?php echo 'R$' . $dados2['preco'] ?></p>
+              <p> <?php echo $quantidade ?> </p>
+              <a href="produtoCardapio.php?del=<?php echo $resAssoc['idProduto'] ?>">X</a>
+            </div>
+          <?php } ?>
+
+        </div>
+      </div>
+    </div>
+
   </section>
 
 </body>

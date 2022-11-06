@@ -25,6 +25,7 @@ body {
 
 header {
   width: 100%;
+  border-bottom: solid 3px white;
 }
 
 .menuu {
@@ -46,6 +47,7 @@ header {
   font-size: 1.8rem;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  border-bottom: solid 3px white;
 }
 
 .logo {

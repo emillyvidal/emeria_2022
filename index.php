@@ -13,6 +13,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+  <link rel="stylesheet" href="/lib/w3.css">
+  <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <link href="styles/index.css" rel="stylesheet">
 
 </head>
@@ -21,7 +25,7 @@
 
   <header style="height: 62px; width: 100%">
     <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-        <div class="menu-content" style="height: 62px; width: 100%">
+        <div class="menu-content" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
           <div class="logo">
             <h1 class="logo" style="color: white;">Eméria</h1>
           </div>
@@ -32,8 +36,8 @@
 
         </div>
 
-          <div class="offcanvas menu offcanvas-start  text-white bg-dark " tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
-            <div class="offcanvas-header">
+          <div class="menu offcanvas  offcanvas-start  text-white bg-dark " tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
+            <div class="offcanvas-header" style="background-color: #500b70">
               <h3 class="offcanvas-title" id="offcanvasExampleLabel">Configuração</h3>
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
@@ -45,7 +49,7 @@
       </nav>
     </header>
 
-  <div id="box" style="font-size: 1.5em; text-transform: uppercase; font-family: 'Lato', sans-serif;">
+  <div id="box" style="  background-color: #212529;font-size: 1.5em; text-transform: uppercase; font-family: 'Lato', sans-serif;">
     <div class="menu_esquerda">
       <button onclick="document.location='/cardapio.php'">Cardápio</button>
       <button onclick="">Minha Comanda</button>

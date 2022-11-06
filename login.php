@@ -2,10 +2,10 @@
 session_start();
 include_once('conexao.php');
 
-$nomeUsuario = $_POST['txtUsuario'];
-$senhaUsuario = $_POST['txtSenha'];
 
-$sql = "select login,senha from usuario where login= '$nomeUsuario'and senha= '$senhaUsuario'";
+$nomeUsuario=$_POST['login'];
+$senhaUsuario=$_POST['senha'];
+$sql = "select login,senha from administrador where login= '$nomeUsuario'and senha= '$senhaUsuario'";
 mysqli_query($conn, $sql);
 
 if (mysqli_affected_rows($conn) == 1) {
@@ -45,13 +45,13 @@ if (mysqli_affected_rows($conn) == 1) {
                     </h2>
                     <br />
                     <div class="inputBox">
-                        <input type="inteiro" name="txtUsuario" id="txtUsuario" class="inputUser" required />
-                        <label for="txtUsuario" class="labelInput">Código</label>
+                        <input type="inteiro" name="login" id="login" class="inputUser" required />
+                        <label for="login" class="labelInput">Código</label>
                     </div>
                     <br />
                     <div class="inputBox">
-                        <input type="password" name="txtSenha" id="txtSenha" class="inputUser" required />
-                        <label for="txtSenha" class="labelInput">Senha</label>
+                        <input type="password" name="senha" id="senha" class="inputUser" required />
+                        <label for="senha" class="labelInput">Senha</label>
                     </div>
                     <br />
                     <br /><br />
