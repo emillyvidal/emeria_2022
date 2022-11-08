@@ -12,7 +12,7 @@
 </head>
 
 <body>
-  <div class="container">
+  <div class="container" style="background-color:#212529">
     <div id="myCarousel" class="carousel slide" data-ride="carousel"style="width: 615px; height:400px">
       <!-- Indicators -->
       <ol class="carousel-indicators">
@@ -22,7 +22,7 @@
       </ol>
 
       <!-- Wrapper for slides -->
-      <div class="carousel-inner">
+      <div class="carousel-inner" style="border-radius: 18px; background-color:#212529">
         <div class="item active">
           <img src="/imagens/hamburguer.jpg" alt="hamburguer" style="height:100%;" />
         </div>

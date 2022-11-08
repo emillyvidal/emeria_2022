@@ -1,4 +1,6 @@
 <?php
+include_once('headerindex.php');
+include('pedido.php');
 include_once('conexao.php');
 ?>
 
@@ -8,19 +10,16 @@ include_once('conexao.php');
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Eméria</title>
 
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <link rel="stylesheet" href="/lib/w3.css">
-  <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- Latest compiled and minified CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
   <script>
     $(document).ready(function() {
@@ -75,6 +74,7 @@ include_once('conexao.php');
       font-family: "Lato", sans-serif;
       border-bottom: solid 3px white;
     }
+
     .menuu {
       background-color: rgb(79, 6, 94);
       color: white;
@@ -146,33 +146,7 @@ include_once('conexao.php');
 
 </head>
 
-<body styles='background-color:red;text-transform: uppercase;''>
-
-  <header style="height: 62px; width: 100%;">
-    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
-        <div class="menu-content" style="height: 62px; width: 100%">
-          <div class="logo">
-            <h1 class="logo" style="color: white; margin:10px;">EMÉRIA</h1>
-          </div>
-
-          <div class="float" style="margin:10px;">
-            <a style=' font-size: 30px; color:white; text-decoration: none' class='fas fa-cog' data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu"></a>
-  </div>
-
-  </div>
-
-  <div class="offcanvas menu offcanvas-start  text-white bg-dark " tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
-    <div class="offcanvas-header" style="background-color: #500b70">
-      <h3 class="offcanvas-title" id="offcanvasExampleLabel">Configuração</h3>
-      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-    </div>
-    <div class="offcanvas-body">
-      <h5><a href="/login.php" class="login text-white">Acessar Conta</a></h5>
-    </div>
-  </div>
-  </nav>
-  </header>
-
+<body styles='background-color:red; text-transform: uppercase;'>
   <section id="box">
     <div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 2%">
       <a style=' font-size:40px; margin: 20px; color: white; text-decoration:none' class='fas fa-arrow-circle-left' href='/index.php'></a>
@@ -198,39 +172,32 @@ include_once('conexao.php');
     </div>
 
     <div class="produto">
-
-
-    </div>
-
-    <div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 12%; right: 8%">
-      <a style=' font-size:100px; margin: 20px; color: white; text-decoration:none' class='fas fa-arrow-circle-left' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
-    </div>
-
-    <div class="abaPedido">
-      <div class="offcanvas menu offcanvas-end  text-white bg-dark " tabindex="-1" id="navbarpedido" aria-labelledby="navbarpedido">
-        <div class="offcanvas-header" style="background-color: #500b70; border-bottom: 2px solid #d9d9d9;">
-          <h3 class="offcanvas-title" id="offcanvasExampleLabel">Pedido</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <h5 class="itemPedido text-white">Itens Pedidos</a></h5>
-
-          <?php
-          foreach ($_SESSION['venda'] as $prod => $quantidade) {
-            $sqlCarrinho = mysqli_query($conn, "SELECT * FROM produto WHERE idProduto = $prod");
-            $resAssoc = mysqli_fetch_assoc($sqlCarrinho);
+      
+      <div class="tudo">
+          <?php $allprodutos= mysqli_query($conn,"SELECT * FROM produto"); 
+          while ($dados3 = mysqli_fetch_array($query2)) {
           ?>
-            <div class="produtocarrinho">
-              <h3><?php echo $dados2['nome'] ?></h3>
-              <p><?php echo 'R$' . $dados2['preco'] ?></p>
-              <p> <?php echo $quantidade ?> </p>
-              <a href="produtoCardapio.php?del=<?php echo $resAssoc['idProduto'] ?>">X</a>
-            </div>
-          <?php } ?>
 
-        </div>
-      </div>
+            <div class="item">
+                <div class="img" name="imgProduto">
+                    <img src="./imagens/<?= $dados3['img'] ?> " class="img img-responsive" width="200" height="100%" style="border-radius: 12px;">
+                </div>
+
+                <div class="info" name="info" style="height:100%;">
+                    <h3><?php echo $dados3['nome'] ?></h3>
+                    <p><?php echo $dados3['descricao'] ?></p>
+                    <h4 class="preco">R$<?php echo number_format($dados3['preco'], 2, ",", ".");  ?></h4>
+                </div>
+
+                <a href="produtoCardapio.php?par=<?php echo $dados3['idProduto'] ?>">Adicionar ao Pedido</a>
+            </div>
+
+        <?php } ?>
+
     </div>
+
+    </div>
+
 
   </section>
 

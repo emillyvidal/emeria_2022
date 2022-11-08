@@ -16,7 +16,6 @@ html {
 }
 
 body {
-  background: linear-gradient(rgba(168, 167, 167, 0.8), rgb(144, 142, 145));
   background-position: center center;
   background-size: cover;
   background-position-y: 0px;
@@ -52,15 +51,14 @@ header {
   border-bottom: solid 3px white;
 }
 
-
 .logo {
   font-size: 30px;
   letter-spacing: 0.4rem;
   cursor: pointer;
 }
 
-.logo h1{
-  margin:0
+.logo h1 {
+  margin: 0;
 }
 #box {
   display: flex;
@@ -99,8 +97,8 @@ header {
   margin-top: 46px;
 }
 
-button{
-  text-transform: uppercase; 
+button {
+  text-transform: uppercase;
 }
 
 iframe {

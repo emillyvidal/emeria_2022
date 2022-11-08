@@ -11,6 +11,7 @@ html {
 }
 .carousel.inner {
   height: 400px !important;
+  border-radius: 18px !important; 
 }
 .carousel-item {
   width: 50%;
