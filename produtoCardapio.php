@@ -19,7 +19,7 @@
                     <h4 class="preco">R$<?php echo number_format($dados2['preco'], 2, ",", ".");  ?></h4>
                 </div>
 
-                <a href="cardapio.php?#home?par=<?php echo $dados2['idProduto'] ?>">Adicionar ao Pedido</a>
+                <a href="cardapio.php?par=<?php echo $dados2['idProduto'] ?>">Adicionar ao Carrinho</a>
             </div>
 
         <?php } ?>

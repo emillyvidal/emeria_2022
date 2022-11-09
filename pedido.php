@@ -1,10 +1,29 @@
 <?php include_once("conexao.php");
 
+include_once('itensprodutoCardapio.php');
 //deletar itens do carrinho
 if (isset($_GET['del'])) {
     //$del = $_GET['del'];
     unset($_SESSION['venda'][$_GET['del']]);
+};
+
+if(isset($_GET['click'])){
+    $carrinho = $_SESSION['venda'];
+    $hoje = date('Y/m/d');
+    $hoje = str_replace('/','-',$hoje);
+    session_destroy();
+
+    
+    if (isset($carrinho)) {
+        mysqli_query($conn, "INSERT INTO pedido ($hoje)");
+        $id = mysqli_insert_id($conn);
+        print_r($id);
+        
+    }
 }
+
+
+    
 ?>
 
 <div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 12%; right: 8%">
@@ -20,7 +39,6 @@ if (isset($_GET['del'])) {
         <div class="offcanvas-body">
 
             <?php
-            include_once('itensprodutoCardapio.php');
             foreach ($_SESSION['venda'] as $prod => $quantidade) {
 
                 $sqlcarrinho = mysqli_query($conn, "SELECT * FROM  produto WHERE idProduto = '$prod'");
@@ -41,6 +59,10 @@ if (isset($_GET['del'])) {
 
             ?>
 
+        </div>
+        <div class="footer" style="display:flex">
+            <p>Total:</p>
+            <a href="cardapio.php?click=1">Finalizar pedido</a>
 
         </div>
     </div>

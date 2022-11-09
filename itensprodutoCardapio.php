@@ -2,11 +2,15 @@
 <?php session_start() ?>
 
 <?php
-@ $cod = $_GET['cod'];
 /* listagem dos produtos */
-
-$sql2 = "SELECT*FROM produto WHERE categoria = '$cod'";
-$query2 = mysqli_query($conn, $sql2);
+if (isset($_GET['cod'])) {
+    $cod = $_GET['cod'];
+    $sql2 = "SELECT*FROM produto WHERE categoria = '$cod'";
+    $query2 = mysqli_query($conn, $sql2);
+} else {
+    $sql2 = "SELECT*FROM produto";
+    $query2 = mysqli_query($conn, $sql2);
+};
 
 /* abrir sessão */
 
@@ -16,10 +20,13 @@ if (isset($_SESSION['venda'])) {
 };
 
 if (isset($_GET['par'])) {
-    $_SESSION['venda'][$_GET['par']] = 1;
+    if (isset($_SESSION['venda'][$_GET['par']])) {
+        $_SESSION['venda'][$_GET['par']]++;
+    } else {
+        $_SESSION['venda'][$_GET['par']] = 1;
+    }
     $produto = $_GET['par'];
 }
-//print_r($_SESSION['venda']);
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +40,8 @@ if (isset($_GET['par'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
     <style>
         * {

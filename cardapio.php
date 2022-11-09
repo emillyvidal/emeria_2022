@@ -23,6 +23,13 @@ include_once('conexao.php');
 
   <script>
     $(document).ready(function() {
+      $.ajax({
+          url: "produtoCardapio.php",
+          success: function(result) {
+            $('.produto').html(result);
+            console.log(result);
+          }
+        });
 
       $('a.opcao').click(function() {
 
