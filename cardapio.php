@@ -173,26 +173,6 @@ include_once('conexao.php');
 
     <div class="produto">
       
-      <div class="tudo">
-          <?php $allprodutos= mysqli_query($conn,"SELECT * FROM produto"); 
-          while ($dados3 = mysqli_fetch_array($query2)) {
-          ?>
-
-            <div class="item">
-                <div class="img" name="imgProduto">
-                    <img src="./imagens/<?= $dados3['img'] ?> " class="img img-responsive" width="200" height="100%" style="border-radius: 12px;">
-                </div>
-
-                <div class="info" name="info" style="height:100%;">
-                    <h3><?php echo $dados3['nome'] ?></h3>
-                    <p><?php echo $dados3['descricao'] ?></p>
-                    <h4 class="preco">R$<?php echo number_format($dados3['preco'], 2, ",", ".");  ?></h4>
-                </div>
-
-                <a href="produtoCardapio.php?par=<?php echo $dados3['idProduto'] ?>">Adicionar ao Pedido</a>
-            </div>
-
-        <?php } ?>
 
     </div>
 

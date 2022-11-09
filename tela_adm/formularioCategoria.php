@@ -28,11 +28,13 @@ $query = mysqli_query($conn, $sqll);
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
-  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
   <!--<script src="/scripts/sidebarCardapio.js" defer></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <link href="styles\adm\style.css" rel="stylesheet">
+  <link href="styles\adm\fonts.css" rel="stylesheet">
+  <link href="styles\adm\media.css" rel="stylesheet">
+
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
@@ -49,19 +51,61 @@ $query = mysqli_query($conn, $sqll);
       font-family: "Lato", sans-serif;
     }
 
-    body {
-      background: linear-gradient(rgba(168, 167, 167, 0.8), rgb(144, 142, 145));
-      background-position: center center;
-      background-size: cover;
-      background-position-y: 0px;
-      background-repeat: no-repeat;
-      width: 1024px;
-      height: 600px;
+    body{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: poppinsregular;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
     }
 
     header {
-      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid rgba(255,255,255,0.4);
     }
+    #title{
+    flex-direction: column;
+    line-height: 10px;
+    text-decoration: none;
+    }
+
+    #title a{
+      text-decoration: none;
+    }
+
+    li{
+        display: inline-block;
+        margin: 20px;
+    }
+
+    a li{
+        color: white;
+    }
+
+    a li:hover{
+        color: rgb(132, 14, 201);
+        transition: 0.3s all;
+    }
+
+    a h1{
+        text-decoration: none;
+        font-weight: 200;
+        color: white;
+    }
+    #btnn{
+    border: 2px solid rgb(132, 14, 201);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#btnn:hover{
+    background-color: rgb(132, 14, 201);
+    color: white;
+}
 
     .menuu {
       background-color: rgb(79, 6, 94);
@@ -93,9 +137,8 @@ $query = mysqli_query($conn, $sqll);
     .box {
       margin: 0 auto;
       width: 80%;
-      height: 78%;
+      height: 430px;
       margin-top: 2%;
-      background-color: gray;
       padding: 0;
       padding-top: 0px;
       border-radius: 12px;
@@ -115,25 +158,31 @@ $query = mysqli_query($conn, $sqll);
     fieldset {
       width: 100%;
       height: 100%;
-      border: 3px solid rgb(79, 6, 94);
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       align-content: flex-start;
-      justify-content: flex-start;
+      justify-content: space-around;
       align-items: stretch;
       margin: 0 auto;
-      flex-direction: column;
+      flex-direction: row;
       align-content: space-between;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      padding-bottom: 25px;
     }
 
     legend {
+      color: white;
       border-bottom: 1px solid white;
       padding: 10px;
       text-align: center;
-      background-color: rgb(79, 6, 94);
       font-size: 30px;
-      margin:0;
-      margin-top:0;
+    }
+
+    fieldset div {
+      margin: 5px;
+      text-align: center;
+
     }
     
 
@@ -161,6 +210,7 @@ $query = mysqli_query($conn, $sqll);
 
     td .btn-sm{
       font-family: sans-serif;
+      color: #dc3545;
     }
 
     .labelInput {
@@ -206,11 +256,11 @@ $query = mysqli_query($conn, $sqll);
       
     }
     tr {
-      font-size: 12px;
-      border: solid 1.5px #2b2a2a;
-      background-color:rgb(79, 6, 94, 0.25);
+            font-size: 12px;
+            border: solid 1.5px #2b2a2a;
+            background-color: rgb(79, 6, 94, 0.7);
 
-    }
+        }
 
     .item {
       width: 220px;
@@ -223,19 +273,20 @@ $query = mysqli_query($conn, $sqll);
 
 <body>
 
-    <header style="height: 62px; width: 100%">
-        <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-          <div class="menu-content" style="height: 62px; width: 100%">
-            <div class="logo">
-            <h1 class="logo" style="color: white;">EMÉRIA</h1>
-            </div>
+<header>
+        <div id="title"><a href="/configurarCardapio.php">
+            <h1>Perfil</h1>
+            <h1>Administrador</h1>
+            </a>
+        </div>
 
-            <div class="float" style=' margin:10px;'>
-              <a class='fas fa-arrow-circle-left' style='font-size:36px; color: white; text-decoration:none' href='/configurarCardapio.php'></a>
-            </div>
-          </div>
-        </nav>
-      </header>
+        <ul>
+            <a href="\tela_adm\formularioCategoria.php"><li>Cadastrar Categorias</li></a>
+            <a href="\tela_adm\formularioProduto.php"><li>Cadastrar Produtos</li></a>
+            <a href="\tela_adm\exibirProdutos.php"><li>Visualizar Produtos</li></a>
+            <a href="#" id="btnn"><li>Comanda</li></a>
+        </ul>
+</header>
 
   <div class="box">
 
@@ -262,7 +313,7 @@ $query = mysqli_query($conn, $sqll);
       <!-- tabela de listagem -->
 
       <div class="listagem" style=" margin-top: 2%;">
-        <h5 style="color: rgb(79, 6, 94)">Categorias cadastradas</h5>
+        <h5 style="color:rgb(79, 6, 94); font-weight:bold; font-size:25px;">Categoria:</h5>
         <table class='tabela'>
 
           <?php while ($dados = mysqli_fetch_array($query)) { ?>
@@ -270,8 +321,8 @@ $query = mysqli_query($conn, $sqll);
               <td class='item'><?php echo $dados['nomeCategoria'] ?></td>
 
               <td colspan="2" class="text-end" style='padding: 2px;'>
-                <a class='btn btn-sm' href='editaCadastro.php?coduser=<?php echo $dados['coduser'] ?>'>Editar</a>
-                <a class='btn btn-sm' href='#' onclick='confirmar("<?php echo $dados['coduser'] ?>")'>Excluir</a>
+                <a class='btn btn-sm ' href='editaCadastro.php?coduser=<?php echo $dados['coduser'] ?>'>Editar</a>
+                <a class='btn btn-sm danger' href='#' onclick='confirmar("<?php echo $dados['coduser'] ?>")'>Excluir</a>
               </td>
             </tr>
           <?php } ?>
@@ -289,6 +340,7 @@ $query = mysqli_query($conn, $sqll);
         location.href = 'excluiUsuario.php?coduser=' + cod;
     }
   </script>
+   <hr>
 </body>
 
 </html>

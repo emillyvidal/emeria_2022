@@ -1,47 +1,51 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <!--<script src="/scripts/sidebarCardapio.js" defer></script> -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="/styles/configurarCardapio.css">
-  <title>Tela Principal - Eméria</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="styles\adm\style.css" rel="stylesheet">
+    <link href="styles\adm\fonts.css" rel="stylesheet">
+    <link href="styles\adm\media.css" rel="stylesheet">
+    <title>Adminstrador</title>
 </head>
-
 <body>
-  <header style="height: 62px; width: 100%">
-    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-      <div class="menu-content" style="height: 62px; width: 100%">
-        <div class="logo">
-          <h1 class="logo" style="color: white">EMÉRIA</h1>
-        </div>
-
-        <div class="float" style="margin:20px; ">
-          <a style='font-size:36px; color:white' class='fas fa-sign-out-alt' href='/index.php'></a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <div class="main-content">
-      <h1 class="primary-text">Perfil Administrador</h1>
-      <h2 class="second-text ">Selecione uma opção:</h2>
-      <div class="redirecionar" style="color: white;">
-        <a href="#" class="btn btn-1 btn-lg">Comanda</a>
-        <div class="redirecionar-1">
-        <a href="/tela_adm/formularioProduto.php" class="btn btn-2 btn-lg">Cadastrar Produtos</a>
-        <a href="/tela_adm/formularioCategoria.php" class="btn btn-3 btn-lg">Cadastrar Categorias</a>
-        <a href="/tela_adm/exibirProdutos.php" class="btn btn-4 btn-lg">Visualizar Produtos Cadastrados</a>
-        </div>
-      </div>
+    <header>
+    <div id="title">
+        <a href="/configurarCardapio.php">
+            <h1>Perfil</h1>
+            <h1>Administrador</h1>
+        </a>
     </div>
-  </main>
-</body>
 
+        <ul>
+            <a href="\tela_adm\formularioCategoria.php"><li>Cadastrar Categorias</li></a>
+            <a href="\tela_adm\formularioProduto.php"><li>Cadastrar Produtos</li></a>
+            <a href=\tela_adm\exibirProdutos.php><li>Visualizar Produtos</li></a>
+            <a href="C:\Users\Cliente\OneDrive\Documentos\TCCEMERIA\Emeria - Caixa\indexcaixa.html" id="btnn"><li>Comanda</li></a>
+        </ul>
+    </header>
+
+    <main>
+        <aside>
+            <h2><span>Eméria</span></h2>
+            <h2>Gerenciador</h2>
+            <p>
+                Obrigado por escolher Eméria! 
+            </p>
+            <div class="form">
+                
+                <a class="input" href="/index.php">Sair</a>
+                </input>   
+                
+                
+            </div>
+        </aside>
+
+        
+    </main>
+      
+        <p> © 2022 Eméria Software - Direitos Reservados.</p>
+    
+</body>
 </html>

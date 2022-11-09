@@ -4,6 +4,13 @@ include_once('conexao.php');
 
 $sqll = "SELECT * FROM produto";
 $query = mysqli_query($conn, $sqll);
+
+$dados3 = mysqli_fetch_array($query);
+$categoria = $dados3['categoria'];
+                echo $categoria; 
+$querycategoria= mysqli_query($conn, "SELECT*FROM categoria WHERE 'idCategoria' = $categoria");
+$dado3 = mysqli_fetch_array($querycategoria);
+
 ?>
 
 <!DOCTYPE html>
@@ -35,26 +42,67 @@ $query = mysqli_query($conn, $sqll);
             width: 1024px;
             height: 600px;
             color: white;
-            font-family: "Lato", sans-serif;
+            font-family: poppinsregular;
         }
 
-        body {
-            background: linear-gradient(rgba(168, 167, 167, 0.8), rgb(144, 142, 145));
-            background-position: center center;
-            background-size: cover;
-            background-position-y: 0px;
-            background-repeat: no-repeat;
-            width: 1024px;
-            height: 600px;
-            Text-transform: capitalize
-        }
-
-        header {
-            width: 100%;
+        body{
+            background-color: rgb(34, 34, 34);
+            color: white;
+            font-family: poppinsregular;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
             }
 
+        header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid rgba(255,255,255,0.4);
+        }
+        #title{
+        flex-direction: column;
+        line-height: 10px;
+        text-decoration: none;
+        }
+
+        #title a{
+        text-decoration: none;
+        }
+
+        li{
+            display: inline-block;
+            margin: 20px;
+        }
+
+        a li{
+            color: white;
+        }
+
+        a li:hover{
+            color: rgb(132, 14, 201);
+            transition: 0.3s all;
+        }
+
+        a h1{
+            text-decoration: none;
+            font-weight: 200;
+            color: white;
+        }
+
+         #btnn{
+            border: 2px solid rgb(132, 14, 201);
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        #btnn:hover{
+            background-color: rgb(132, 14, 201);
+            color: white;
+        }
         .texto {
-            font-family: "Lato", sans-serif;
+            font-family: poppinsregular;
             font-size: small;
             }
 
@@ -75,16 +123,23 @@ $query = mysqli_query($conn, $sqll);
             }
 
         .listagem {
-            align-items: center;
             margin: 0 auto;
-            width: 600px;
-        }
+            width: 80%;
+            height: 430px;
+            margin-top: 2%;
+            padding: 0;
+            padding-top: 0px;
+            border-radius: 12px;
+            color: white;
+            font-size: 25px;
+            background-color: rgba(255, 255, 255, 0.2);
+            }
 
         .legend {
             border-bottom: 1px solid white;
             padding: 10px;
             text-align: center;
-            background-color: rgb(79, 6, 94);
+            color: rgb(79, 6, 94);
             font-size: 30px;
             margin: 0;
             margin-top: 0;
@@ -107,12 +162,12 @@ $query = mysqli_query($conn, $sqll);
         tr {
             font-size: 12px;
             border: solid 1.5px #2b2a2a;
-            background-color: rgb(79, 6, 94, 0.25);
+            background-color: rgb(79, 6, 94, 0.7);
 
         }
 
         .item {
-            width: 80%;
+            width: 70%;
             margin: 20px;
             padding-left: 8px;
             text-align: center;
@@ -123,19 +178,20 @@ $query = mysqli_query($conn, $sqll);
 
 <body>
 
-    <header style="height: 62px; width: 100%">
-        <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-          <div class="menu-content" style="height: 62px; width: 100%">
-            <div class="logo">
-            <h1 class="logo" style="color: white;">EMÉRIA</h1>
-            </div>
+<header>
+        <div id="title"><a href="/configurarCardapio.php">
+            <h1>Perfil</h1>
+            <h1>Administrador</h1>
+            </a>
+        </div>
 
-            <div class="float" style=' margin:10px;'>
-              <a class='fas fa-arrow-circle-left' style='font-size:36px; color: white; text-decoration:none' href='/configurarCardapio.php'></a>
-            </div>
-          </div>
-        </nav>
-    </header>
+        <ul>
+            <a href="\tela_adm\formularioCategoria.php"><li>Cadastrar Categorias</li></a>
+            <a href="\tela_adm\formularioProduto.php"><li>Cadastrar Produtos</li></a>
+            <a href="\tela_adm\exibirProdutos.php"><li>Visualizar Produtos</li></a>
+            <a href="#" id="btnn"><li>Comanda</li></a>
+        </ul>
+</header>
 
     <!-- tabela de listagem -->
 
@@ -144,18 +200,13 @@ $query = mysqli_query($conn, $sqll);
         <table class='tabela'>
 
             <?php 
-            while ($dados3 = mysqli_fetch_array($query)) { 
-            $cat= $dados3['categoria'];
-            $nomecat= "SELECT nomeCategoria FROM categoria WHERE idCategoria = $cat";
+            while ($dados3) { 
             
                 ?>
-
                 <tr>
                     <td class='item'><?php echo $dados3['nome'] ?></td>
-                    <?php 
-                    
-                    ?>
-                    <td class='item'><?php echo $nomecat?></td>
+
+                    <td class='item'><?php echo $dados3['categoria']?></td> 
                     
                     <td colspan="2" class="text-end" style='padding: 2px;'>
                         <a class='btn btn-sm' href='editaCadastro.php?coduser=<?php echo $dados3['coduser'] ?>'>Editar</a>
@@ -167,7 +218,7 @@ $query = mysqli_query($conn, $sqll);
         </table>
 
     </div>
-
+    <hr>
 </body>
 
 </html>

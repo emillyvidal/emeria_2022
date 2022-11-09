@@ -79,19 +79,61 @@ if (isset($_POST['btnenviar'])) {
       font-family: "Lato", sans-serif;
     }
 
-    body {
-      background: linear-gradient(rgba(168, 167, 167, 0.8), rgb(144, 142, 145));
-      background-position: center center;
-      background-size: cover;
-      background-position-y: 0px;
-      background-repeat: no-repeat;
-      width: 1024px;
-      height: 600px;
+    body{
+    background-color: rgb(34, 34, 34);
+    color: white;
+    font-family: poppinsregular;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px;
     }
 
     header {
-      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 3px solid rgba(255,255,255,0.4);
     }
+    #title{
+    flex-direction: column;
+    line-height: 10px;
+    text-decoration: none;
+    }
+
+    #title a{
+      text-decoration: none;
+    }
+
+    li{
+        display: inline-block;
+        margin: 20px;
+    }
+
+    a li{
+        color: white;
+    }
+
+    a li:hover{
+        color: rgb(132, 14, 201);
+        transition: 0.3s all;
+    }
+
+    a h1{
+        text-decoration: none;
+        font-weight: 200;
+        color: white;
+    }
+    #btnn{
+    border: 2px solid rgb(132, 14, 201);
+    padding: 10px;
+    border-radius: 15px;
+}
+
+#btnn:hover{
+    background-color: rgb(132, 14, 201);
+    color: white;
+}
 
     .menuu {
       background-color: rgb(79, 6, 94);
@@ -123,9 +165,8 @@ if (isset($_POST['btnenviar'])) {
     .box {
       margin: 0 auto;
       width: 80%;
-      height: 78%;
+      height: 430px;
       margin-top: 2%;
-      background-color: gray;
       padding: 0;
       padding-top: 0px;
       border-radius: 12px;
@@ -154,8 +195,6 @@ if (isset($_POST['btnenviar'])) {
     fieldset {
       width: 100%;
       height: 100%;
-      border: 3px solid rgb(79, 6, 94);
-      ;
       display: flex;
       flex-wrap: wrap;
       align-content: flex-start;
@@ -164,13 +203,15 @@ if (isset($_POST['btnenviar'])) {
       margin: 0 auto;
       flex-direction: row;
       align-content: space-between;
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
     }
 
     legend {
+      color: white;
       border-bottom: 1px solid white;
       padding: 10px;
       text-align: center;
-      background-color: rgb(79, 6, 94);
       font-size: 30px;
     }
 
@@ -187,7 +228,7 @@ if (isset($_POST['btnenviar'])) {
     .inputUser {
       background: none;
       border: none;
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid rgb(79 6 94);
       outline: none;
       color: white;
       font-size: 15px;
@@ -231,24 +272,25 @@ if (isset($_POST['btnenviar'])) {
 </head>
 
 <body>
-  <header style="height: 62px; width: 100%">
-    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-      <div class="menu-content" style="height: 62px; width: 100%">
-        <div class="logo">
-          <h1 class="logo" style="color: white;">EMÉRIA</h1>
+<header>
+        <div id="title"><a href="/configurarCardapio.php">
+            <h1>Perfil</h1>
+            <h1>Administrador</h1>
+            </a>
         </div>
 
-        <div class="float" style=' margin:10px;'>
-          <a class='fas fa-arrow-circle-left' style='font-size:36px; color: white; text-decoration:none' href='/configurarCardapio.php'></a>
-        </div>
-      </div>
-    </nav>
-  </header>
+        <ul>
+            <a href="\tela_adm\formularioCategoria.php"><li>Cadastrar Categorias</li></a>
+            <a href="\tela_adm\formularioProduto.php"><li>Cadastrar Produtos</li></a>
+            <a href="\tela_adm\exibirProdutos.php"><li>Visualizar Produtos</li></a>
+            <a href="#" id="btnn"><li>Comanda</li></a>
+        </ul>
+</header>
 
   <div class="box">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" enctype="multipart/form-data">
       <fieldset>
-        <legend><b>Cadastro de itens do Cardápio</b></legend>
+        <legend><b>Cadastro de Produtos</b></legend>
         <div class="div1">
           <div class="inputBox">
             <input type="text" name="nome" id="nome" class="inputUser" required />
