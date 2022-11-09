@@ -4,12 +4,10 @@ include_once('conexao.php');
 
 $sqll = "SELECT * FROM produto";
 $query = mysqli_query($conn, $sqll);
-
-$dados3 = mysqli_fetch_array($query);
-$categoria = $dados3['categoria'];
-echo $categoria;
-$querycategoria = mysqli_query($conn, "SELECT * FROM categoria WHERE idCategoria = $categoria");
-$dado3 = mysqli_fetch_array($querycategoria);
+//mudei o comando de fetch_array pra fetch_all, assim ele busca todos os registros
+$dados3 = mysqli_fetch_all($query);
+$querycategoria = mysqli_query($conn, "SELECT * FROM categoria");
+$dado3 = mysqli_fetch_all($querycategoria);
 
 ?>
 
@@ -210,20 +208,30 @@ $dado3 = mysqli_fetch_array($querycategoria);
         <table class='tabela'>
 
             <?php
-            //fica em um looping infinito, tem que ver um jeito de percorrer apenas os dados uma vez
-            while ($dados3) {
+            //laço foreach pra ele passar por todos os produtos
+            foreach ($dados3 as $dado) {
             ?>
                 <tr>
-                    <td class='item'><?php echo $dados3['nome'] ?></td>
+                    <td class='item'><?php echo $dado[1] ?></td>
 
-                    <td class='item'><?php echo $dado3['nomeCategoria'] ?></td>
+                    <td class='item'>
+                        <!-- laço foreach pra ele comparar e descobrir qual a categoria -->
+                        <?php
+                        foreach ($dado3 as $dad) {
+                            if ($dad[1] == $dado[4]) {
+                                echo $dad[0];
+                                break;
+                            }
+                        } ?>
+                    </td>
 
                     <td colspan="2" class="text-end" style='padding: 2px;'>
-                        <a class='btn btn-sm' href='editaCadastro.php?coduser= <?php echo $dados3['idProduto'] ?>'>Editar</a>
-                        <a class='btn btn-sm' href='#' onclick='confirmar(<?php echo $dados3["idProduto"] ?>)'>Excluir</a>
+                        <a class='btn btn-sm' href='editaCadastro.php?coduser= <?php echo $dado[0] ?>'>Editar</a>
+                        <a class='btn btn-sm' href='#' onclick='confirmar(<?php echo $dado[0] ?>)'>Excluir</a>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php }
+            ?>
 
         </table>
 
