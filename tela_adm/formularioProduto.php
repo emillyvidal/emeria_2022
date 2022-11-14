@@ -73,8 +73,6 @@ if (isset($_POST['btnenviar'])) {
     }
 
     html {
-      width: 1024px;
-      height: 600px;
       color: white;
       font-family: "Lato", sans-serif;
     }
@@ -94,11 +92,13 @@ if (isset($_POST['btnenviar'])) {
       justify-content: space-between;
       align-items: center;
       border-bottom: 3px solid rgba(255,255,255,0.4);
+      height: 100px;
     }
     #title{
     flex-direction: column;
     line-height: 10px;
     text-decoration: none;
+    height: 100px;
     }
 
     #title a{
@@ -176,7 +176,7 @@ if (isset($_POST['btnenviar'])) {
 
     .div1 {
       width: 65%;
-      height: 70%;
+      height: 60%;
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -216,9 +216,8 @@ if (isset($_POST['btnenviar'])) {
     }
 
     fieldset div {
-      margin: 5px;
-      text-align: center;
-
+    margin: 12px 5px;
+    text-align: center;
     }
 
     .inputBox {
@@ -253,15 +252,17 @@ if (isset($_POST['btnenviar'])) {
     }
 
     #submit {
-      background-color: rgb(79, 6, 94);
       width: 50%;
-      border: none;
       padding: 10px;
       color: white;
       font-size: 20px;
       font-weight: bold;
       cursor: pointer;
-      margin-bottom: 5%
+      padding: 10px;
+      border-radius: 15px;
+      margin-bottom: 5%;
+      border: 2px solid rgb(132, 14, 201);
+      background-color: rgb(34, 34, 34);
     }
 
     #submit:hover {
@@ -296,18 +297,18 @@ if (isset($_POST['btnenviar'])) {
             <input type="text" name="nome" id="nome" class="inputUser" required />
             <label for="nome" class="labelInput">Nome do item</label>
           </div>
-          <br />
+          
           <div class="inputBox">
             <input type="text" name="descricao" id="descricao" class="inputUser" required />
             <label for="descricao" class="labelInput">Descrição</label>
           </div>
-          <br />
+          
           <div class="inputBox">
             <input type="number" name="preco" id="preco" class="inputUser" required />
             <label for="preco" class="labelInput">Preço</label>
           </div>
 
-          <br />
+          
 
           <div class="inputBox">
             <input type="file" name="pic" accept="image/*" class="form-control">
@@ -316,7 +317,7 @@ if (isset($_POST['btnenviar'])) {
         </div>
 
 
-        <div class="div2" style="margin-left: 20px; padding-top: 5%;">
+        <div class="div2" style="margin-left: 20px; padding-top: 2%;">
           <p style="color:rgb(79, 6, 94); font-weight:bold; ">Categoria:</p>
 
           <?php

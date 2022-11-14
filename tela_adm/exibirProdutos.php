@@ -20,11 +20,11 @@ $dado3 = mysqli_fetch_all($querycategoria);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos Cadastrados</title>
 
-    <script src="https://kit.fontawesome.com/3df637a2f2.js" crossorigin="anonymous"></script>
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <!--<script src="/scripts/sidebarCardapio.js" defer></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 
     <style>
@@ -37,8 +37,6 @@ $dado3 = mysqli_fetch_all($querycategoria);
         }
 
         html {
-            width: 1024px;
-            height: 600px;
             color: white;
             font-family: poppinsregular;
         }
@@ -58,12 +56,14 @@ $dado3 = mysqli_fetch_all($querycategoria);
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+            height: 100px;
         }
 
         #title {
             flex-direction: column;
             line-height: 10px;
             text-decoration: none;
+            height: 100px;
         }
 
         #title a {
@@ -133,6 +133,7 @@ $dado3 = mysqli_fetch_all($querycategoria);
             color: white;
             font-size: 25px;
             background-color: rgba(255, 255, 255, 0.2);
+            overflow-y: scroll;
         }
 
         .legend {
@@ -140,18 +141,21 @@ $dado3 = mysqli_fetch_all($querycategoria);
             padding: 10px;
             text-align: center;
             color: rgb(79, 6, 94);
-            font-size: 30px;
+            font-size: 35px;
             margin: 0;
             margin-top: 0;
         }
 
         td {
-            font-size: 15px;
+            font-size: 18px;
             font-family: arial;
         }
 
-        td .btn-sm {
+        td a{
+            text-decoration: none;
+            color: #dc3545; 
             font-family: sans-serif;
+            padding: 2px; 
         }
 
         table {
@@ -163,11 +167,13 @@ $dado3 = mysqli_fetch_all($querycategoria);
             font-size: 12px;
             border: solid 1.5px #2b2a2a;
             background-color: rgb(79, 6, 94, 0.7);
-
+            text-transform:inherit;
+            height: 60px;   
+            font-size: 20px;
         }
 
         .item {
-            width: 70%;
+            width: 40%;
             margin: 20px;
             padding-left: 8px;
             text-align: center;
@@ -228,9 +234,9 @@ $dado3 = mysqli_fetch_all($querycategoria);
                         } ?>
                     </td>
 
-                    <td colspan="2" class="text-end" style='padding: 2px;'>
-                        <a class='btn btn-sm' href='editaCadastro.php?coduser= <?php echo $dado[0] ?>'>Editar</a>
-                        <a class='btn btn-sm' href='#' onclick='confirmar(<?php echo $dado[0] ?>)'>Excluir</a>
+                    <td colspan="2" class="text-center" >
+                        <a class='fas fa-edit' href='editaCadastro.php?coduser= <?php echo $dado[0] ?>'></a>
+                        <a class='fas fa-trash' href='#' onclick='confirmar(<?php echo $dado[0] ?>)'></a>
                     </td>
                 </tr>
             <?php }

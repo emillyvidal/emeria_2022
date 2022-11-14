@@ -45,8 +45,6 @@ $query = mysqli_query($conn, $sqll);
     }
 
     html {
-      width: 1024px;
-      height: 600px;
       color: white;
       font-family: "Lato", sans-serif;
     }
@@ -66,11 +64,13 @@ $query = mysqli_query($conn, $sqll);
       justify-content: space-between;
       align-items: center;
       border-bottom: 3px solid rgba(255,255,255,0.4);
+      height: 100px;
     }
     #title{
     flex-direction: column;
     line-height: 10px;
     text-decoration: none;
+    height: 100px;
     }
 
     #title a{
@@ -253,7 +253,12 @@ $query = mysqli_query($conn, $sqll);
 
     table{
       width:100%;
-      
+     border-radius: 12px; 
+    }
+    tbody{
+      border-radius: 12px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
     }
     tr {
             font-size: 12px;
@@ -267,6 +272,19 @@ $query = mysqli_query($conn, $sqll);
       margin: 20px;
       padding-left: 8px;
     }
+
+    .listagem h5{
+      color: rgba(255,255,255,0.5);
+      font-weight: bold;
+      font-size: 25px;
+      background-color: #2b2a2a;
+      border-bottom: 1px solid white;
+      margin-bottom: 0px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      
+    }
+
   </style>
 
 </head>
@@ -313,8 +331,9 @@ $query = mysqli_query($conn, $sqll);
       <!-- tabela de listagem -->
 
       <div class="listagem" style=" margin-top: 2%;">
-        <h5 style="color:rgb(79, 6, 94); font-weight:bold; font-size:25px;">Categoria:</h5>
+        <h5 >Categoria:</h5>
         <table class='tabela'>
+          <tbody style="overflow-y: scroll; height:182.5px; ">
 
           <?php while ($dados = mysqli_fetch_array($query)) { ?>
             <tr>
@@ -326,7 +345,7 @@ $query = mysqli_query($conn, $sqll);
               </td>
             </tr>
           <?php } ?>
-
+          </tbody>
         </table>
 
       </div>

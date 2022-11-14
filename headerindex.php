@@ -12,9 +12,9 @@
     header {
       width: 100%;
       font-family: "Lato", sans-serif;
-      border-bottom: solid 3px white;
+      border-bottom: 3px solid rgba(255,255,255,0.4) !important;
       height: 60px;
-  position: relative;
+      position: relative;
     }
 
     .logo {
@@ -51,6 +51,7 @@
         </div>
         <div class="offcanvas-body">
           <h5><a href="/login.php" class="login text-white">Acessar Conta</a></h5>
+          <h5><a href="/configuracoes.php" class="login text-white">Configurações</a></h5>
         </div>
       </div>
 

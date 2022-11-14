@@ -24,12 +24,6 @@ body {
   height: 600px;
 }
 
-header {
-  width: 100%;
-  font-family: "Lato", sans-serif;
-  border-bottom: solid 3px white;
-}
-
 .menuu {
   background-color: rgb(79, 6, 94);
   color: white;

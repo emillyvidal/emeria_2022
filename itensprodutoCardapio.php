@@ -77,23 +77,38 @@ if (isset($_GET['par'])) {
             height: 30%;
             color: white;
             border-radius: 12px;
+            padding: 5px;
         }
 
         .info {
-            margin: 8px;
-            height: 30%;
+            margin: none;
+            padding: 8px;
+            height: 100%;
+            width: 100%;
         }
 
-        h3 {
+        h5 {
             text-transform: uppercase;
             margin-top: 0%;
         }
 
-        p {
-            word-wrap: normal;
-            width: 95%;
-            height: 50%;
+        .info .descricao{
+            height: 80px;
             text-transform: capitalize;
+            
+        }
+
+        .importantes{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        h4 .preco{
+            margin:none;
+            position:absolute;
+            margin-top: 2px;
         }
 
         form {
@@ -119,6 +134,27 @@ if (isset($_GET['par'])) {
             display: block;
             max-width: 200px;
             height: auto;
+        }
+
+        .footer{
+            display:flex; 
+            justify-content: space-around;
+            border-top: 1px solid rgba(255,255,255,0.4) !important;
+            height: 10%;
+        }
+        .footer a{
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            width: 50%;
+            background-color: rgb(132, 14, 201);
+            border-radius: 12px;
+            align-self: center;
+            text-align: center;
+        }
+
+        .footer p{
+            width: 70%;
         }
     </style>
 </head>

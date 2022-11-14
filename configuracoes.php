@@ -2,19 +2,20 @@
 session_start();
 include_once('conexao.php');
 
-if (isset($_POST['submitlogin'])) {
-  $nomeUsuario = $_POST['login'];
+if (isset($_POST['submitconfig'])) {
+  $mesa = $_POST['mesa'];
   $senhaUsuario = $_POST['senha'];
-  $sql = "select login,senha from administrador where login= '$nomeUsuario'and senha= '$senhaUsuario'";
-  mysqli_query($conn, $sql);
+  $sql1 = "SELECT senha FROM administrador WHERE senha= '$senhaUsuario'";
+  $query1 = mysqli_query($conn,$sql1);
 
-  if (mysqli_affected_rows($conn) == 1) {
-    //echo 'Usuário está cadastrado';
-    $_SESSION['submit'] = TRUE;
-    $_SESSION['login'] = $nomeUsuario;
-    $_SESSION['senha'] = $senhaUsuario;
-    header('location:configurarCardapio.php');
-  }
+  if (mysqli_affected_rows($conn) == 1){
+    //$sql = "INSERT INTO mesa(Idmesa) VALUES ('$mesa')";
+    $query= mysqli_query($conn,"INSERT INTO mesa(Idmesa) VALUES ('$mesa')" );
+    header('location:cardapio.php');
+      
+}else{
+  echo "<script>alert('Ops! Ocorreu algum erro.');</script>";
+}
 }
 ?>
 
@@ -25,7 +26,7 @@ if (isset($_POST['submitlogin'])) {
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eméria - Login</title>
+  <title>Eméria - Configurações</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Latest compiled JavaScript -->
@@ -64,12 +65,12 @@ if (isset($_POST['submitlogin'])) {
       <div class="carousel">
         <form name="formlogin" method="post">
           <legend>
-            <h2>Entrar</h2>
+            <h2>Definir número da mesa</h2>
             </h2>
             <br />
             <div class="inputBox">
-              <input type="inteiro" name="login" id="login" class="inputUser" required />
-              <label for="login" class="labelInput">Código</label>
+              <input type="inteiro" name="mesa" id="mesa" class="inputUser" required />
+              <label for="mesa" class="labelInput">Indique o número da mesa</label>
             </div>
             <br />
             <div class="inputBox">
@@ -78,7 +79,7 @@ if (isset($_POST['submitlogin'])) {
             </div>
             <br />
             <br /><br />
-            <input type="submit" name="submitlogin" id="submitlogin" value="Entrar" />
+            <input type="submit" name="submitconfig" id="submitconfig" value="Entrar" />
 
         </form>
       </div>

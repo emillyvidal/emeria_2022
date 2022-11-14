@@ -13,11 +13,13 @@ header{
     justify-content: space-between;
     align-items: center;
     border-bottom: 3px solid rgba(255,255,255,0.4);
+    height: 100px;
 }
 
 #title{
     flex-direction: column;
     line-height: 10px;
+    height: 100px;
 }
 
 li{
@@ -54,19 +56,29 @@ main{
     display: flex;
     flex-direction: row;
     margin-top: 50px;
+    height: 380px;
 }
 
-h2{
-    font-size: 56px;
-    line-height: 10px;
-    font-family: poppinsmedium;
+aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
+    
+aside h2{
+        font-size: 56px;
+        line-height: 10px;
+        font-family: poppinsmedium;
+        height: 50px;
+    }
+    
+aside span{
+        color: rgb(132, 14, 201);
+    }
+    
 
-span{
-    color: rgb(132, 14, 201);
-}
-
-p{
+    p{
     line-height: 20px;
     max-width: 500px;
     font-family: poppinslight;

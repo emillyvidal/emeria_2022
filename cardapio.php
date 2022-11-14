@@ -76,12 +76,6 @@ include_once('conexao.php');
       height: 600px;
     }
 
-    header {
-      width: 100%;
-      font-family: "Lato", sans-serif;
-      border-bottom: solid 3px white;
-    }
-
     .menuu {
       background-color: rgb(79, 6, 94);
       color: white;
@@ -147,8 +141,17 @@ include_once('conexao.php');
 
     ul a {
       color: white;
-      text-transform: uppercase;
+      text-transform: uppercase;}
+
+    .nav {
+      text-decoration:none; 
+      color:white;
+      width: 75%;
+      font-size: larger;
+      padding-bottom: 10%;
+      border-bottom: 1px solid rgba(255,255,255,0.4) !important;
     }
+    
   </style>
 
 </head>
@@ -168,9 +171,9 @@ include_once('conexao.php');
 
       while ($dados = mysqli_fetch_array($query)) { ?>
 
-        <ul class="nav nav-pills nav-stacked" style="text-decoration:none; color:white;">
-          <li>
-            <a id="<?= $dados['idCategoria'] ?>" class="opcao" style="text-decoration-line: none;" name="categoria" data-toggle="tab" href="#home">
+        <ul class="nav nav-pills nav-stacked">
+          <li style="margin:0 auto;">
+            <a id="<?= $dados['idCategoria'] ?>" class="opcao" style="text-decoration-line: none; " name="categoria" data-toggle="tab" href="#home">
               <?= $dados['nomeCategoria'] ?>
             </a>
           </li>

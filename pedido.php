@@ -7,27 +7,13 @@ if (isset($_GET['del'])) {
     unset($_SESSION['venda'][$_GET['del']]);
 };
 
-if(isset($_GET['click'])){
-    $carrinho = $_SESSION['venda'];
-    $hoje = date('Y/m/d');
-    $hoje = str_replace('/','-',$hoje);
-    session_destroy();
-
-    
-    if (isset($carrinho)) {
-        mysqli_query($conn, "INSERT INTO pedido ($hoje)");
-        $id = mysqli_insert_id($conn);
-        print_r($id);
-        
-    }
-}
 
 
-    
+
 ?>
 
-<div class="float" style="position: fixed; width: 75px; height: 75px; z-index:2; bottom: 12%; right: 8%">
-    <a style=' font-size:100px; margin: 20px; color: white; text-decoration:none' class='fas fa-arrow-circle-left' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
+<div class="float" style="background-color: #500b70; position: fixed; width: 120px; height: 120px; border-radius:50%; z-index:2; bottom: 8%; right: 5%">
+    <a style=' font-size:50px; margin: 32px; color: white; text-decoration:none' class='fas fa-cart-plus' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
 </div>
 
 <div class="abaPedido">
@@ -50,18 +36,41 @@ if(isset($_GET['click'])){
                     </div>
                     <div class="descitem">
                         <h4><?php echo $resassoc['nome'] ?></h4>
-                        <p><?php echo 'R$' . $resassoc['preco'] ?></p>
+                        <div style="display: flex; justify-content: space-evenly;">
+                            <p><?php echo 'R$' . $resassoc['preco'] ?></p>
+                            <p>Quantidade:<?php echo $quantidade ?> </p>
+                        </div>
                     </div>
-                    <p><?php echo $quantidade ?> </p>
                     <a href="Cardapio.php?del=<?php echo $resassoc['idProduto'] ?>">X</a>
                 </div>
-            <?php }
+
+            <?php
+                $_GET['par'] == '0';
+                //para incluir no banco
+                if(isset($quantidade)){
+                    $nomeProduto = "$resassoc[nome]";
+                    $precoProduto = "$resassoc[preco]";
+                    $quantidadeProduto = "$quantidade";
+                    $data_hora = date('m-d-Y h:i:s a', time()); 
+
+                    $sqlCarrinho2 = "INSERT INTO itempedido(nomeProduto, preco, quantidade) 
+                            VALUES ('$nomeProduto','$precoProduto', '$quantidadeProduto')";
+                    mysqli_query($conn, $sqlCarrinho2);
+                    
+                    
+             
+                    $totalProduto =+ $resassoc['preco'] * $quantidade;
+                }; 
+            
+            
+        }
 
             ?>
 
         </div>
-        <div class="footer" style="display:flex">
+        <div class="footer">
             <p>Total:</p>
+            <h5><?php echo number_format($totalProduto, 2, ",", ".")?></h5>
             <a href="cardapio.php?click=1">Finalizar pedido</a>
 
         </div>
