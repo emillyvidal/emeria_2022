@@ -1,4 +1,4 @@
-<?php  include_once('headerindex.php');  ?>
+<?php include_once('headerindex.php');  ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -11,10 +11,10 @@
 
   <title>Eméria</title>
 
-    <!-- Latest compiled and minified CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Latest compiled JavaScript -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Latest compiled JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
   <link href="styles/index.css" rel="stylesheet">
@@ -22,7 +22,7 @@
 </head>
 
 <body styles='background-color:red; text-transform: uppercase;'>
- <!-- <header style="height: 62px; width: 100%">
+  <!-- <header style="height: 62px; width: 100%">
     <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
       <div class="menu-content" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
         <div class="logo">
@@ -49,27 +49,27 @@
   </header>
 -->
 
-  
+
 
   <div id="box" style="  background-color: #212529;font-size: 1.5em; text-transform: uppercase; font-family: ' Lato', sans-serif;">
-  <div class="menu_esquerda">
-    <button onclick="document.location='/cardapio.php'">Cardápio</button>
-    <button onclick="">Minha Comanda</button>
-  </div>
+    <div class="menu_esquerda">
+      <button onclick="document.location='./cardapio.php'">Cardápio</button>
+      <button onclick="">Minha Comanda</button>
+    </div>
 
 
-  <div class="boxDestaques">
+    <div class="boxDestaques">
 
-    <?php
-    include('destaques.php');
-    ?>
+      <?php
+      include('destaques.php');
+      ?>
 
 
 
-    <!--<div class="iframe">
+      <!--<div class="iframe">
         <iframe src="destaques.php" width=664px height=554px name="destaques"></iframe>
       </div>-->
-  </div>
+    </div>
 
   </div>
 

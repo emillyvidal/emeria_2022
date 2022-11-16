@@ -13,7 +13,7 @@
 
 <body>
   <div class="container" style="background-color:#212529">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel"style="width: 615px; height:400px">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel" style="width: 615px; height:400px">
       <!-- Indicators -->
       <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -24,14 +24,14 @@
       <!-- Wrapper for slides -->
       <div class="carousel-inner" style="border-radius: 18px; background-color:#212529">
         <div class="item active">
-          <img src="/imagens/hamburguer.jpg" alt="hamburguer" style="height:100%;" />
+          <img src="./imagens/hamburguer.jpg" alt="hamburguer" style="height:100%;" />
         </div>
         <div class="item">
-          <img src="/imagens/pizzacalabresa.jpg" alt="pizzacalabresa" style="height:400px;" />
+          <img src="./imagens/pizzacalabresa.jpg" alt="pizzacalabresa" style="height:400px;" />
         </div>
 
         <div class="item">
-          <img src="/imagens/sucolaranja.jpg" alt="sucolaranja" style="height:100%;" />
+          <img src="./imagens/sucolaranja.jpg" alt="sucolaranja" style="height:100%;" />
         </div>
       </div>
 

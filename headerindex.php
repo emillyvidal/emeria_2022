@@ -14,7 +14,7 @@
       font-family: "Lato", sans-serif;
       border-bottom: solid 3px white;
       height: 60px;
-  position: relative;
+      position: relative;
     }
 
     .logo {
@@ -50,7 +50,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-          <h5><a href="/login.php" class="login text-white">Acessar Conta</a></h5>
+          <h5><a href="./login.php" class="login text-white">Acessar Conta</a></h5>
         </div>
       </div>
 

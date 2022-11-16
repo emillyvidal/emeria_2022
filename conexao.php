@@ -1,13 +1,13 @@
 <?php
 
-$host="localhost";
-$port=3306;
-$user="root";
-$password="";
-$dbname="emeria";
+$host = "localhost";
+$port = 3306;
+$user = "root";
+$password = "1234";
+$dbname = "emeria";
 
 $conn = new mysqli($host, $user, $password, $dbname, $port)
-  or die ('Could not connect to the database server' . mysqli_connect_error());
+  or die('Could not connect to the database server' . mysqli_connect_error());
 
 //$con->close();
 //se conectou:
@@ -21,6 +21,3 @@ $conn = new mysqli($host, $user, $password, $dbname, $port)
 
 
 //$con->close();
-
-
-
