@@ -1,23 +1,34 @@
 <?php
 include_once('conexao.php');
 
-if (isset($_POST['btnAddCategoria'])) {
-  $nomeCategoria = $_POST['nomeCategoria'];
-  $sql = "INSERT INTO categoria(nomeCategoria) 
-    VALUES ('$nomeCategoria')";
-
-  mysqli_query($conn, $sql);
-
-  if (mysqli_affected_rows($conn) > 0) {
-    echo "<script> alert('Categoria cadastrada com sucesso.') </script>";
-    header('location: formularioCategoria.php');
-  } else {
-    echo "<script> alert('Ocorreu algum erro.') </script>";
-  }
-}
 
 $sqll = "SELECT * FROM categoria";
 $query = mysqli_query($conn, $sqll);
+?>
+
+
+<?php
+
+include_once('conexao.php');
+if (!empty($_GET['id'])) {
+
+  $id = $_GET['id'];
+
+  $sql = "SELECT * FROM categoria WHERE idCategoria=$id";
+
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    while ($categoria_data = mysqli_fetch_assoc($result)) {
+      $nomeCategoria = $categoria_data['nomeCategoria'];
+    }
+  } else {
+    header('location:formularioCategoria.php');
+  };
+}else{
+  header('location:formularioCategoria.php');
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -101,12 +112,12 @@ $query = mysqli_query($conn, $sqll);
     border: 2px solid rgb(132, 14, 201);
     padding: 10px;
     border-radius: 15px;
-}
+    }
 
-#btnn:hover{
-    background-color: rgb(132, 14, 201);
-    color: white;
-}
+    #btnn:hover{
+        background-color: rgb(132, 14, 201);
+        color: white;
+    }
 
     .menuu {
       background-color: rgb(79, 6, 94);
@@ -229,7 +240,7 @@ $query = mysqli_query($conn, $sqll);
       color: rgb(79, 6, 94);
     }
 
-    #submit {
+    #update {
       background-color: rgb(79, 6, 94);
       border: none;
       padding: 5px;
@@ -241,7 +252,7 @@ $query = mysqli_query($conn, $sqll);
       font-size: 18px;
     }
 
-    #submit:hover {
+    #update:hover {
       background-image: linear-gradient(to left, #525158, #525158);
       color: white;
     }
@@ -312,15 +323,15 @@ $query = mysqli_query($conn, $sqll);
     <fieldset>
       <legend><b>Cadastro de Categorias</b></legend>
 
-      <form action="formularioCategoria.php" method="POST">
+      <form action="saveeditCategoria.php" method="POST">
         <div class="inputs" style="display:inline-flex;">
           <div class="inputBox">
-            <input type="text" name="nomeCategoria" id="nomeCategoria" class="inputUser" required />
+            <input type="text" name="nomeCategoria" id="nomeCategoria" class="inputUser" required value="<?php echo $nomeCategoria ?>"/>
             <label for="nomeCategoria" class="labelInput">Adicione uma nova Categoria</label>
           </div>
-
+          <input type="hidden" name="id" value="<?php echo $id; ?>">
           <div class="inputBox">
-            <button type="submit" name="btnAddCategoria" id="submit">
+            <button type="submit" name="update" id="update">
               <span class="fas fa-chevron-right" style="font-size: 22px; width:28px"></span>
             </button>
           </div>
@@ -353,6 +364,13 @@ $query = mysqli_query($conn, $sqll);
   </fieldset>
 
   </div>
+
+  <script>
+    function confirmar(cod) {
+      if (confirm('Você realmente deseja excluir esta linha?'))
+        location.href = 'excluiUsuario.php?coduser=' + cod;
+    }
+  </script>
    <hr>
 </body>
 

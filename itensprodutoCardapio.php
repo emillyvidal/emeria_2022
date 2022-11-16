@@ -60,6 +60,7 @@ if (isset($_GET['par'])) {
         body .body {
             display: flex;
             margin-top: 80px;
+            text-transform: uppercase;
         }
 
         .tudo {
@@ -140,13 +141,28 @@ if (isset($_GET['par'])) {
             display:flex; 
             justify-content: space-around;
             border-top: 1px solid rgba(255,255,255,0.4) !important;
-            height: 10%;
+            height: 15%;
+            align-items: center;
+            padding: 10px;
         }
-        .footer a{
+
+        .footer div{
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 50%;
+        }
+
+        .footer form{
+            height: 50%;
+            width: 50%;
+        }
+        .footer input{
             text-decoration: none;
             color: white;
             font-weight: bold;
-            width: 50%;
+            width: 100%;
+            height: 100%;
             background-color: rgb(132, 14, 201);
             border-radius: 12px;
             align-self: center;
@@ -154,7 +170,17 @@ if (isset($_GET['par'])) {
         }
 
         .footer p{
+            width: 20%;
+            margin-right: 8px;
+        }
+
+        .informacoes{
             width: 70%;
+            display: flex;
+        }
+        .descitem{
+            width: 95%;
+            padding-left: 10px;
         }
     </style>
 </head>

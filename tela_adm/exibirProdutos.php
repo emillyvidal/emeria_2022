@@ -23,8 +23,8 @@ $dado3 = mysqli_fetch_all($querycategoria);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 
 
     <style>
@@ -151,11 +151,11 @@ $dado3 = mysqli_fetch_all($querycategoria);
             font-family: arial;
         }
 
-        td a{
+        td a {
             text-decoration: none;
-            color: #dc3545; 
+            color: #dc3545;
             font-family: sans-serif;
-            padding: 2px; 
+            padding: 2px;
         }
 
         table {
@@ -167,8 +167,8 @@ $dado3 = mysqli_fetch_all($querycategoria);
             font-size: 12px;
             border: solid 1.5px #2b2a2a;
             background-color: rgb(79, 6, 94, 0.7);
-            text-transform:inherit;
-            height: 60px;   
+            text-transform: inherit;
+            height: 60px;
             font-size: 20px;
         }
 
@@ -234,9 +234,9 @@ $dado3 = mysqli_fetch_all($querycategoria);
                         } ?>
                     </td>
 
-                    <td colspan="2" class="text-center" >
-                        <a class='fas fa-edit' href='editaCadastro.php?coduser= <?php echo $dado[0] ?>'></a>
-                        <a class='fas fa-trash' href='#' onclick='confirmar(<?php echo $dado[0] ?>)'></a>
+                    <td colspan="2" class="text-center">
+                        <a class='fas fa-edit btn btn-primary' href='editaProdutos.php?id=<?php echo $dado[0] ?>' title="editar"></a>
+                        <a class='fas fa-trash btn btn-danger' href='excluiProdutos.php?id=<?php echo $dado[0] ?>' title="deletar"></a>
                     </td>
                 </tr>
             <?php }
