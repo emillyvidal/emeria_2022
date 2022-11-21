@@ -11,20 +11,34 @@
   <style>
     header {
       width: 100%;
-      font-family: "Lato", sans-serif;
+      font-family: "Lato", sans-serif !important;
       border-bottom: 3px solid rgba(255,255,255,0.4) !important;
       height: 60px;
       position: relative;
     }
 
-    .logo {
-      font-size: 30px;
-      letter-spacing: 0.4rem;
+    .mesa {
       cursor: pointer;
+      align-self: center;
     }
 
     .logo h1 {
       margin: 0
+    }
+
+    .menu-content {
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      font-size: 1.8rem;
+      border-bottom: solid 3px white;
+    }
+
+    .div{
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      width: 80%;
     }
   </style>
 </head>
@@ -33,13 +47,19 @@
 
   <header style="height: 62px; width: 100%">
     <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-      <div class="menu-content" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
-        <div class="logo">
-          <h1 class="logo" style="color: white;">Eméria</h1>
-        </div>
+      <div class="menu-content" style="height: 62px; width: 100%; border-bottom: solid 3px white;font-family: 'Lato', sans-serif !important;">
+        <div class="div">
+          <div class="mesa">
+            <h1 class="logo" style="color: white;">Eméria</h1>
+          </div>
 
-        <div class="float" style="margin:10px;">
-          <a style='font-size: 36px; color:white; text-decoration: none' class='fas fa-cog' data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu"></a>
+          <div class="float" style="margin:10px;">
+            <a style='font-size: 36px; color:white; text-decoration: none' class='fas fa-cog' data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu"></a>
+          </div>
+        </div>
+        
+        <div class="mesa" style="margin:0; ">
+          
         </div>
 
       </div>

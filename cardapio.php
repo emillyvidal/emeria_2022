@@ -86,18 +86,6 @@ include_once('conexao.php');
       font-family: "Lato", sans-serif;
       font-size: small;
     }
-
-    .menu-content {
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      font-size: 1.8rem;
-      flex-direction: row-reverse;
-      justify-content: flex-end;
-      border-bottom: solid 3px white;
-    }
-
-
     .logo {
       font-size: 30px;
       letter-spacing: 0.4rem;

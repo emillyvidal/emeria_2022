@@ -1,24 +1,8 @@
 <?php
-session_start();
-include_once('conexao.php');
-
-if (isset($_POST['submitconfig'])) {
-  $mesa = $_POST['mesa'];
-  $senhaUsuario = $_POST['senha'];
-  $sql1 = "SELECT senha FROM administrador WHERE senha= '$senhaUsuario'";
-  $query1 = mysqli_query($conn,$sql1);
-
-  if (mysqli_affected_rows($conn) == 1){
-    //$sql = "INSERT INTO mesa(Idmesa) VALUES ('$mesa')";
-    $query= mysqli_query($conn,"INSERT INTO mesa(Idmesa) VALUES ('$mesa')" );
-    header('location:cardapio.php');
-      
-}else{
-  echo "<script>alert('Ops! Ocorreu algum erro.');</script>";
-}
-}
+  include_once('conexao.php');
+  include_once('variaveisConfiguracoes.php');
+  session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -61,8 +45,7 @@ if (isset($_POST['submitconfig'])) {
 
 
       </div>
-
-      <div class="carousel">
+      <div class="carousel" id="cadastrar">
         <form name="formlogin" method="post">
           <legend>
             <h2>Definir número da mesa</h2>
@@ -80,31 +63,25 @@ if (isset($_POST['submitconfig'])) {
             <br />
             <br /><br />
             <input type="submit" name="submitconfig" id="submitconfig" value="Entrar" />
-
         </form>
       </div>
+      <?php 
+      if (isset($_SESSION['comanda'])){
+      $aparecer = "block";}else{
+      $aparecer = "none";}
+      ?>
+      <div class="cancelar" style="background-color:#9f09e5;text-align:center;display:<?php echo $aparecer; ?>">
+
+        <h2 style="margin-top: 35%;">Mesa já definida <br/>
+        <?php echo $_SESSION['comanda']; ?>
+        </h2>
+
+      </div>
+
     </div>
   </div>
 
 
 </body>
-
-<script>
-  function logar() {
-
-    var codigo = document.getElementById('codigo').value;
-    var senha = document.getElementById('senha').value;
-
-    if (login == "administrador" && senha == "administrador") {
-      alert('Sucesso');
-      location.href = "index.html";
-    } else {
-      alert('Codigo ou senha incorretos');
-    }
-
-  }
-</script>
-
-<script src="C:\Users\Cliente\Downloads\javascript-sliding-login-and-registration-form-main\app.js"></script>
 
 </html>

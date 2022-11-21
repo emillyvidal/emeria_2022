@@ -16,7 +16,7 @@ if (isset($_GET['cod'])) {
 
 if (isset($_SESSION['venda'])) {
 } else {
-    $_SESSION['venda'] = array();
+    $_SESSION['venda']=array();
 };
 
 if (isset($_GET['par'])) {
@@ -93,22 +93,22 @@ if (isset($_GET['par'])) {
             margin-top: 0%;
         }
 
-        .info .descricao{
+        .info .descricao {
             height: 80px;
             text-transform: capitalize;
-            
+
         }
 
-        .importantes{
+        .importantes {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: flex-start;
         }
 
-        h4 .preco{
-            margin:none;
-            position:absolute;
+        h4 .preco {
+            margin: none;
+            position: absolute;
             margin-top: 2px;
         }
 
@@ -137,27 +137,28 @@ if (isset($_GET['par'])) {
             height: auto;
         }
 
-        .footer{
-            display:flex; 
+        .footer {
+            display: flex;
             justify-content: space-around;
-            border-top: 1px solid rgba(255,255,255,0.4) !important;
+            border-top: 1px solid rgba(255, 255, 255, 0.4) !important;
             height: 15%;
             align-items: center;
             padding: 10px;
         }
 
-        .footer div{
+        .footer div {
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             width: 50%;
         }
 
-        .footer form{
+        .footer form {
             height: 50%;
             width: 50%;
         }
-        .footer input{
+
+        .footer input {
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -169,18 +170,23 @@ if (isset($_GET['par'])) {
             text-align: center;
         }
 
-        .footer p{
+        .footer p {
             width: 20%;
             margin-right: 8px;
         }
 
-        .informacoes{
+        .informacoes {
             width: 70%;
             display: flex;
         }
-        .descitem{
+
+        .descitem {
             width: 95%;
             padding-left: 10px;
+        }
+        .produtocarrinho{
+            padding: 5px 0px;
+            border-bottom: 1px solid rgba(255,255,255,0.4) !important;
         }
     </style>
 </head>

@@ -39,7 +39,7 @@ if (isset($_GET['del'])) {
                         <div class="descitem">
                             <h4><?php echo $resassoc['nome'] ?></h4>
                             <div style="display: flex; justify-content: space-evenly;">
-                                <p><?php echo 'R$' . $resassoc['preco'] ?></p>
+                                <p>R$ <?php echo number_format($resassoc['preco'], 2, ",", "."); ?></p>
                                 <p>Quantidade:<?php echo $quantidade ?> </p>
                             </div>
                         </div>
@@ -50,31 +50,28 @@ if (isset($_GET['del'])) {
             <?php
                 $preco = $resassoc['preco'];
                 $totalProduto += $preco * $quantidade;
-            }; 
+            };
             ?>
         </div>
-        <?php 
-        echo "veio";
+        <?php
 
-            if (isset($_POST['enviar'])){
-                $sqlCriarPedido = mysqli_query($conn, "INSERT INTO pedido(valorPedido) VALUES('$totalProduto')");
+        if (isset($_POST['enviar'])) {
+            $idComanda = $_SESSION['comanda'];
+            $sqlCriarPedido = mysqli_query($conn, "INSERT INTO pedido(valorPedido, idComanda) VALUES('$totalProduto', '$idComanda')");
 
-                $idpedido = mysqli_insert_id($conn);
-                echo "oi lindo";
+            $idpedido = mysqli_insert_id($conn);
 
-                foreach($_SESSION['venda'] as $ProdInsert => $Qtd){
-                    echo $idpedido; 
-                    echo $Qtd;
-                    $sqlInsertItem = mysqli_query($conn, "INSERT INTO itenspedido(idPedido, idProduto, Qtd) VALUES('$idpedido', '$ProdInsert', '$Qtd')");
-
-                }
-            };
+            foreach ($_SESSION['venda'] as $ProdInsert => $Qtd) {
+                $sqlInsertItem = mysqli_query($conn, "INSERT INTO itenspedido(idPedido, idProduto, Qtd) VALUES('$idpedido', '$ProdInsert', '$Qtd')");
+            }
+            session_destroy();
+        };
         ?>
 
         <div class="footer">
             <div>
-            <p>Total:</p>
-            <h5><?php echo number_format($totalProduto, 2, ",", ".");?></h5>
+                <p>Total:</p>
+                <h5>R$ <?php echo number_format($totalProduto, 2, ",", "."); ?></h5>
             </div>
             <form action="cardapio.php" method="POST">
                 <input type="submit" name="enviar" value="Finalizar pedido">

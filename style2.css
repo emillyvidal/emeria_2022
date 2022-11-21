@@ -196,6 +196,21 @@ main.sign-up-mode .carousel {
   align-items: center;
 }
 
+main.sign-up-mode .cancelar {
+  left: 0%;
+}
+
+.cancelar {
+  position: absolute;
+  width: 55%;
+  left: 45%;
+  top: 0;
+  background-color: #cac6c6;
+  border-radius: 2rem;
+  align-items: center;
+  height: 100% !important;
+}
+
 .images-wrapper {
   display: grid;
   grid-template-columns: 1fr;
@@ -326,6 +341,13 @@ main.sign-up-mode .carousel {
     padding: 3rem 2rem;
     display: flex;
   }
+  .cancelar {
+    position: revert;
+    height: auto;
+    width: 100%;
+    padding: 3rem 2rem;
+    display: flex;
+  }
 
   .images-wrapper {
     display: none;
@@ -350,6 +372,10 @@ main.sign-up-mode .carousel {
   }
 
   .carousel {
+    padding: 1.5rem 1rem;
+    border-radius: 1.6rem;
+  }
+  .cancelar {
     padding: 1.5rem 1rem;
     border-radius: 1.6rem;
   }

@@ -15,7 +15,7 @@
   <div class="container" style="background-color:#212529">
     <div id="myCarousel" class="carousel slide" data-ride="carousel"style="width: 615px; height:400px">
       <!-- Indicators -->
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators" style="z-index: 2;">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>

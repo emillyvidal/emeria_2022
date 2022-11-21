@@ -1,4 +1,19 @@
-<?php  include_once('headerindex.php');  ?>
+<?php 
+      include_once('headerindex.php'); 
+      include_once('conexao.php');
+      session_start();?>
+
+<?php 
+  $comanda = $_SESSION['comanda'];
+  if(isset($_SESSION['comanda'])){
+    $querypedido = mysqli_query($conn,"SELECT idPedido FROM pedido WHERE idComanda = '$comanda'");
+    $idPedido = mysqli_fetch_array($querypedido);
+    $sqlselect = "SELECT * FROM itenspedido WHERE idPedido = '$idPedido'";
+    $queryselect = mysqli_query($conn, $sqlselect);
+    $resultado = mysqli_fetch_array($queryselect);
+    var_dump($resultado);
+  };
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -16,45 +31,18 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://kit.fontawesome.com/4f1451ffa0.js" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>  
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="styles/index.css" rel="stylesheet">
 
 </head>
 
 <body styles='background-color:red; text-transform: uppercase;'>
- <!-- <header style="height: 62px; width: 100%">
-    <nav class="navbar-dark bg-dark" style="height: 62px; width: 100%">
-      <div class="menu-content" style="height: 62px; width: 100%; border-bottom: solid 3px white;">
-        <div class="logo">
-          <h1 class="logo" style="color: white;">Eméria</h1>
-        </div>
-
-        <div class="float" style="margin:10px;">
-          <a style='font-size: 36px; color:white; text-decoration: none' class='fas fa-cog' data-bs-toggle="offcanvas" data-bs-target="#offcanvasMenu" aria-controls="offcanvasMenu"></a>
-        </div>
-
-      </div>
-
-      <div class="menu offcanvas  offcanvas-start  text-white bg-dark " tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenu">
-        <div class="offcanvas-header" style="background-color: #500b70">
-          <h3 class="offcanvas-title" id="offcanvasExampleLabel">Configuração</h3>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <h5><a href="/login.php" class="login text-white">Acessar Conta</a></h5>
-        </div>
-      </div>
-
-    </nav>
-  </header>
--->
-
-  
 
   <div id="box" style="  background-color: #212529;font-size: 1.5em; text-transform: uppercase; font-family: ' Lato', sans-serif;">
   <div class="menu_esquerda">
     <button onclick="document.location='/cardapio.php'">Cardápio</button>
-    <button onclick="">Minha Comanda</button>
+    <button onclick="document.getElementById('id01').style.display='block'">Minha Comanda</button>
   </div>
 
 
@@ -63,9 +51,6 @@
     <?php
     include('destaques.php');
     ?>
-
-
-
     <!--<div class="iframe">
         <iframe src="destaques.php" width=664px height=554px name="destaques"></iframe>
       </div>-->
@@ -73,7 +58,22 @@
 
   </div>
 
-  <div class="abaPedido">
+  <div id="id01" class="w3-modal" >
+    <div class="w3-modal-content w3-animate-zoom w3-container"style="background-color:#212529;padding:0; height:90%;">
+        <div class="modal-header" style="background-color: #500b70; border-bottom: 2px solid #d9d9d9;">
+            <h3 class="offcanvas-title" id="offcanvasExampleLabel">Comanda</h3>
+            <button type="button" class="btn-close"  
+            onclick="document.getElementById('id01').style.display='none'"class="w3-button w3-display-topright">
+            </button>
+        </div>     
+      <div class="modal-body">
+        <p>Some text..</p>
+        <p>Some text..</p>
+      </div>
+      <footer >
+        <p>Modal Footer</p>
+      </footer>
+    </div>
   </div>
 
 
