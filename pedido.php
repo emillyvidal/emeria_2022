@@ -12,7 +12,7 @@ if (isset($_GET['del'])) {
 
 ?>
 
-<div class="float" style="background-color: #500b70; position: fixed; width: 120px; height: 120px; border-radius:50%; z-index:2; bottom: 8%; right: 5%">
+<div class="float" style="background-color: #500b70; position: fixed; width: 120px; height: 120px; border-radius:50%; z-index:2; bottom: 8%; right: 5%; border: 1px solid;">
     <a style=' font-size:50px; margin: 32px; color: white; text-decoration:none' class='fas fa-cart-plus' data-bs-toggle="offcanvas" data-bs-target="#navbarpedido" aria-controls="navbarpedido"></a>
 </div>
 
@@ -64,7 +64,8 @@ if (isset($_GET['del'])) {
             foreach ($_SESSION['venda'] as $ProdInsert => $Qtd) {
                 $sqlInsertItem = mysqli_query($conn, "INSERT INTO itenspedido(idPedido, idProduto, Qtd) VALUES('$idpedido', '$ProdInsert', '$Qtd')");
             }
-            session_destroy();
+            unset($_SESSION['venda']);
+            echo "<script>alert('Pedido finalizado com sucesso!');</script>";
         };
         ?>
 

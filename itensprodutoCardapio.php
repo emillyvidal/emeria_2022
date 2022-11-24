@@ -188,6 +188,13 @@ if (isset($_GET['par'])) {
             padding: 5px 0px;
             border-bottom: 1px solid rgba(255,255,255,0.4) !important;
         }
+        .btn-carrinho{
+            text-decoration: none;
+            background-color:#500b70;
+            color: white;
+            padding: 5px;
+            border-radius: 12px;
+        }
     </style>
 </head>
 

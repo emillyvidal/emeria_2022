@@ -201,9 +201,7 @@ $dado3 = mysqli_fetch_all($querycategoria);
             <a href="\tela_adm\exibirProdutos.php">
                 <li>Visualizar Produtos</li>
             </a>
-            <a href="#" id="btnn">
-                <li>Comanda</li>
-            </a>
+            <a href="\tela_adm\caixa\caixa.php" id="btnn"><li>Comanda</li></a>
         </ul>
     </header>
 

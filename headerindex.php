@@ -26,6 +26,14 @@
       margin: 0
     }
 
+    .offcanvas-body h5{
+      font-size: 20px;
+    }
+    .offcanvas-body a{
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
     .menu-content {
       text-transform: uppercase;
       display: flex;

@@ -4,16 +4,19 @@
       session_start();?>
 
 <?php 
-  $comanda = $_SESSION['comanda'];
   if(isset($_SESSION['comanda'])){
-    $querypedido = mysqli_query($conn,"SELECT idPedido FROM pedido WHERE idComanda = '$comanda'");
-    $idPedido = mysqli_fetch_array($querypedido);
-    $sqlselect = "SELECT * FROM itenspedido WHERE idPedido = '$idPedido'";
-    $queryselect = mysqli_query($conn, $sqlselect);
-    $resultado = mysqli_fetch_array($queryselect);
-    var_dump($resultado);
-  };
-?>
+    $comanda = $_SESSION['comanda'];
+    $sqlpedido ="SELECT * FROM produto,itenspedido, pedido,comanda WHERE produto.idProduto = itenspedido.idProduto 
+                                                                  AND itenspedido.idPedido=pedido.idPedido 
+                                                                  AND pedido.idComanda=comanda.idComanda
+                                                                  AND comanda.idComanda = '$comanda'";
+    $query = mysqli_query($conn, $sqlpedido);
+    #$quantidade = mysqli_query($conn,"SELECT * FROM itenspedido,pedido,comanda WHERE itenspedido.idPedido=pedido.idPedido 
+                                                                  #AND pedido.idComanda=comanda.idComanda
+                                                                  #AND comanda.idComanda = '$comanda'");
+  }else{
+      echo "<h3>Indique o Número da mesa.</h3>";
+ };  ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -51,27 +54,43 @@
     <?php
     include('destaques.php');
     ?>
-    <!--<div class="iframe">
-        <iframe src="destaques.php" width=664px height=554px name="destaques"></iframe>
-      </div>-->
+    
   </div>
 
   </div>
 
-  <div id="id01" class="w3-modal" >
-    <div class="w3-modal-content w3-animate-zoom w3-container"style="background-color:#212529;padding:0; height:90%;">
+  <div id="id01" class="w3-modal" style="overflow-y:hidden ;">
+    <div class="w3-modal-content w3-animate-zoom w3-container"style="overflow-y: scroll;background-color:#212529;padding:0; height:90%;">
         <div class="modal-header" style="background-color: #500b70; border-bottom: 2px solid #d9d9d9;">
             <h3 class="offcanvas-title" id="offcanvasExampleLabel">Comanda</h3>
             <button type="button" class="btn-close"  
             onclick="document.getElementById('id01').style.display='none'"class="w3-button w3-display-topright">
             </button>
         </div>     
-      <div class="modal-body">
-        <p>Some text..</p>
-        <p>Some text..</p>
+      <div class="modal-body" >
+        <?php 
+        $totalProduto = 0;
+        while($row = mysqli_fetch_array($query)){ ?>      
+              <div class="produtocarrinho">
+                      <div class="img" name="imgProduto" >
+                          <img src="./imagens/<?= $row['5'] ?> " class="img img-responsive" style="border-radius: 12px; height: 100px !important; width:100px !important;">
+                      </div>
+                      <div class="informacoes" >
+                          <div class="descitem">
+                              <h4><?php echo $row['2'] ?></h4>
+                              <p>R$ <?php echo number_format($row['3'], 2, ",", "."); ?></p>
+                              <p>Quantidade:<?php echo $row['8'] ?> </p>
+                              
+                          </div>
+                      </div>
+                </div>
+                <?php
+                $preco = $row['3'];
+                $totalProduto += $preco * $row['8'];
+                 }; ?>
       </div>
       <footer >
-        <p>Modal Footer</p>
+          <h3>Total: R$ <?php echo number_format($totalProduto, 2, ",", "."); ?></h3>
       </footer>
     </div>
   </div>

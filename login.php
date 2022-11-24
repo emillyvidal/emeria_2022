@@ -13,7 +13,15 @@ if (isset($_POST['submitlogin'])) {
     $_SESSION['submit'] = TRUE;
     $_SESSION['login'] = $nomeUsuario;
     $_SESSION['senha'] = $senhaUsuario;
-    header('location:configurarCardapio.php');
+    switch ($nomeUsuario) {
+      case '565568':
+        $_SESSION['idConta'] = '1';
+        header('location:configurarCardapio.php');
+        break;
+      case '1234':
+        $_SESSION['idConta'] = '2';
+        header('location:cozinha.php');
+    }
   }
 }
 ?>

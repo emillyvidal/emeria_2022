@@ -303,7 +303,7 @@ $query = mysqli_query($conn, $sqll);
             <a href="\tela_adm\formularioCategoria.php"><li>Cadastrar Categorias</li></a>
             <a href="\tela_adm\formularioProduto.php"><li>Cadastrar Produtos</li></a>
             <a href="\tela_adm\exibirProdutos.php"><li>Visualizar Produtos</li></a>
-            <a href="#" id="btnn"><li>Comanda</li></a>
+            <a href="\tela_adm\caixa\caixa.php" id="btnn"><li>Comanda</li></a>
         </ul>
 </header>
 

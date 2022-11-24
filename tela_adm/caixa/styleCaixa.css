@@ -1,9 +1,13 @@
+html{
+  height: 100vh;
+  
+}
 body{
     background-color: rgb(34, 34, 34);
     color: white;
     font-family: poppinsregular;
-    max-width: 1200px;
     margin: 0 auto;
+    height: 100%;
 }
 
 header{
@@ -79,6 +83,7 @@ form{
     display: flex;
     flex-direction: column;
     width: 70%;
+    margin: 0 auto;
 }
 
 form [type="submit"]{
@@ -93,9 +98,7 @@ form [type="submit"]:hover{
 }
 
 input{
-    margin-top: 20px;
-    height: 60px;
-    padding: 15px;
+    height: 40px;
     border-radius: 20px;
     border: none;
     font-size: 15px;
@@ -211,6 +214,40 @@ input{
       line-height: 10px;
   }
 
-  
+  .container{
+    height: 100%;
+  }
+  .produtos{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 55%;
+    flex-direction: row-reverse;
+  }
+  .tudo_comanda{
+    height: 100%;
+  }
+  .n_comanda{
+    height: 20%;
+  }
+  .prod_consumido{
+    width: 70%;
+    margin-right: 10px;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  .produtocarrinho{
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-top: 8px;
+    color: white;
+    border-radius: 12px;
+    padding: 1px 30px;
+    display: flex;
+    justify-content: space-between;
+  }
 
+.descitem{
+  padding: 20px 0px;
+}
  

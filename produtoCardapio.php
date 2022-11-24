@@ -21,7 +21,7 @@
                     <div class="importantes"> 
                         <h4 class="preco">R$<?php echo number_format($dados2['preco'], 2, ",", ".");  ?></h4>
                     
-                        <a href="cardapio.php?par=<?php echo $dados2['idProduto'] ?>">Adicionar ao Carrinho</a>
+                        <a class="btn-carrinho"href="cardapio.php?par=<?php echo $dados2['idProduto'] ?>">Adicionar ao Pedido</a>
                     </div>
                 </div>
             </div>

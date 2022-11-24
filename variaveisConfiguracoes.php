@@ -17,10 +17,14 @@ if (isset($_POST['submitconfig'])) {
       $query = mysqli_query($conn, "INSERT INTO comanda(idComanda) VALUES ('$mesa')");
       $_SESSION['comanda'] = $mesa;
       header('location:cardapio.php');
+    } elseif (mysqli_num_rows($querycomanda) == 1) {
+      session_start();
+      $_SESSION['comanda'] = $mesa;
+      header('location:cardapio.php');
     } else {
+      session_start();
       $_SESSION['comanda'] = array();
       echo "<script>alert('Esta mesa já existe!');</script>";
-      
     }
   }
 }

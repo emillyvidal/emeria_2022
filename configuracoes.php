@@ -81,6 +81,7 @@
     </div>
   </div>
 
+  <?php #session_unset(); ?>
 
 </body>
 
